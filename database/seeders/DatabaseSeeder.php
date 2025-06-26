@@ -2,8 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\QuartTravail;
 use App\Models\User;
+
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Database\Factories\QuartTravailFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,6 +25,12 @@ class DatabaseSeeder extends Seeder
             'travail' => 'Job',
             'departement' => 'Département',
             'departement_surveillance' => 'Departement de surveillance',
+        ]);
+
+        //Quart de travail
+        QuartTravail::factory(2)->create();
+        $this->call([
+            QuartTravailSeeder::class
         ]);
     }
 }
