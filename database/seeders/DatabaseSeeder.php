@@ -6,6 +6,7 @@ use App\Models\QuartTravail;
 use App\Models\User;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Vacance;
 use Database\Factories\QuartTravailFactory;
 use Illuminate\Database\Seeder;
 
@@ -31,6 +32,12 @@ class DatabaseSeeder extends Seeder
         QuartTravail::factory(2)->create();
         $this->call([
             QuartTravailSeeder::class
+        ]);
+
+        //Vacance
+        Vacance::factory(2)->create();
+        $this->call([
+            VacanceSeeder::class
         ]);
     }
 }
