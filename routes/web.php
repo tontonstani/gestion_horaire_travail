@@ -19,6 +19,9 @@ Route::resource("quart_travails",QuartTravailController::class);
 //Routage pour vacance
 Route::resource("vacances",VacanceController::class);
 
+//Routage pour User
+Route::resource("employes",ProfileController::class);
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
