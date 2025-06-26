@@ -14,7 +14,7 @@ class VacanceController extends Controller
      */
     public function index()
     {
-        //
+        return view('vacance.index', ['vacances' => Vacance::all()]);
     }
 
     /**
@@ -22,7 +22,7 @@ class VacanceController extends Controller
      */
     public function create()
     {
-        //
+        return view('vacance.ajouter');
     }
 
     /**
@@ -46,7 +46,7 @@ class VacanceController extends Controller
      */
     public function edit(Vacance $vacance)
     {
-        //
+        return view('vacance.modifier', ['vacance' => $vacance]);
     }
 
     /**
