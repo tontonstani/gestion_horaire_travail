@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\QuartTravail;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreQuartTravailRequest;
-use App\Http\Requests\UpdateQuartTravailRequest;
+use App\Http\Requests\QuartTravailRequest;
 
 class QuartTravailController extends Controller
 {
@@ -14,7 +13,7 @@ class QuartTravailController extends Controller
      */
     public function index()
     {
-        //
+        return view('quart_travail.index', ['quarts' => QuartTravail::all()]);
     }
 
     /**
@@ -22,15 +21,20 @@ class QuartTravailController extends Controller
      */
     public function create()
     {
-        //
+        return view('quart_travail.ajouter');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreQuartTravailRequest $request)
+    public function store(QuartTravailRequest $request)
     {
-        //
+        QuartTravail::create([
+            "debut_quart" => $request->input('debut_quart'),
+            "fin_quart" => $request->input('fin_quart'),
+            "id_employe" => $request->input('id_employe'),
+        ]);
+        return redirect()->route('quart_travails.index');
     }
 
     /**
@@ -46,13 +50,13 @@ class QuartTravailController extends Controller
      */
     public function edit(QuartTravail $quartTravail)
     {
-        //
+        return view("quart_travail.modifier", ["quart" => $quartTravail]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateQuartTravailRequest $request, QuartTravail $quartTravail)
+    public function update(QuartTravailRequest $request, QuartTravail $quartTravail)
     {
         //
     }
