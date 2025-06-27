@@ -23,9 +23,9 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
-    public function edit(User $user): View
+    public function edit(User $employe): View
     {
-        return view('employe.modifier', ['employe' => $user]);
+        return view('employe.modifier', ['employe' => $employe]);
     }
 
     /**

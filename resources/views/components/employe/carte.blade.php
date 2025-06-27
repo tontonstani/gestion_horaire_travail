@@ -1,5 +1,5 @@
 <div class="bg-gray-300 mb-3">
-    <h1>{{$employe->name}}</h1>
+    <h1>{{$employe->prenom}} {{$employe->nom}}</h1>
     <p>Numéro d'employé: {{$employe->numero_employe}}</p>
     <a href="{{route("employes.edit",$employe)}}">Modifier</a>
     <form action="#" method="post">
