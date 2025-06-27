@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class QuartTravail extends Model
 {
     /** @use HasFactory<\Database\Factories\QuartTravailFactory> */
+    protected $fillable = ["id_employe","debut_quart","fin_quart"];
     use HasFactory;
 }

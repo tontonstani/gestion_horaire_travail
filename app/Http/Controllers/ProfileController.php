@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,13 +13,19 @@ use Illuminate\View\View;
 class ProfileController extends Controller
 {
     /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        return view("employe.index", ["employes"=>User::all()]);
+    }
+
+    /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): View
+    public function edit(User $employe): View
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
+        return view('employe.modifier', ['employe' => $employe]);
     }
 
     /**
