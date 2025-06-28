@@ -1,8 +1,7 @@
 <x-guest-layout>
-    <h1 class="bg-gray-300">Modifier {{$employe->prenom}} {{$employe->nom}}</h1>
-    <form action="{{route("employes.update",$employe)}}" method="post" class="bg-gray-300">
+<h1 class="bg-gray-300">Créer un employé</h1>
+    <form action="{{route("employes.store")}}" method="post" class="bg-gray-400">
         @csrf
-        @method("PUT")
         <div>
             <label for="prenom">Prénom</label>
             <input name="prenom" id="prenom" type="text" required>
@@ -54,6 +53,6 @@
             <input name="password" id="password" type="password" required>
         </div>
 
-        <button type="submit">Modifier</button>
+        <button type="submit">Ajouter</button>
     </form>
 </x-guest-layout>
