@@ -1,7 +1,7 @@
 <x-guest-layout>
     <h1 class="bg-gray-400">Modifier le quart du <strong>{{$quart->debut_quart}}</strong> - <strong>{{$quart->fin_quart}}</strong></h1>
 
-    <form action="{{route("quart_travails.store")}}" method="post" class="bg-gray-300">
+    <form action="{{route("quart_travails.update",$quart)}}" method="post" class="bg-gray-300">
         @csrf
         @method("PUT")
         <div>

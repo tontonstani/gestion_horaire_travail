@@ -58,7 +58,13 @@ class QuartTravailController extends Controller
      */
     public function update(QuartTravailRequest $request, QuartTravail $quartTravail)
     {
-        //
+        $quartTravail->update([
+           "debut_quart" => $request->input('debut_quart'),
+           "fin_quart" => $request->input('fin_quart'),
+           "id_employe" => $request->input('id_employe'),
+        ]);
+        $quartTravail->save();
+        return redirect()->route('quart_travails.index');
     }
 
     /**
@@ -66,6 +72,7 @@ class QuartTravailController extends Controller
      */
     public function destroy(QuartTravail $quartTravail)
     {
-        //
+        $quartTravail->delete();
+        return redirect()->route('quart_travails.index');
     }
 }
