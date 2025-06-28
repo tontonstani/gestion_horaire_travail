@@ -20,7 +20,11 @@
                 <td>{{$vacance->id_employe}}</td>
                 <td>
                     <a href="{{route("vacances.edit",$vacance)}}">Modifier</a>
-                    <a href="#">Supprimer</a>
+                    <form action="{{route("vacances.destroy",$vacance)}}" method="post">
+                        @csrf
+                        @method("DELETE")
+                        <button type="submit">Supprimer</button>
+                    </form>
                 </td>
             </tr>
         @endforeach

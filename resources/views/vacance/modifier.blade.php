@@ -1,7 +1,7 @@
 <x-guest-layout>
     <h1 class="bg-gray-400">Modifier les vacances du <strong>{{$vacance->debut_vacance}}</strong> - <strong>{{$vacance->fin_vacance}}</strong></h1>
 
-    <form action="{{route("vacances.edit",$vacance)}}" method="post" class="bg-gray-300">
+    <form action="{{route("vacances.update",$vacance)}}" method="post" class="bg-gray-300">
         @csrf
         @method("PUT")
         <div>
