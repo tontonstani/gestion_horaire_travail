@@ -43,7 +43,7 @@ class ProfileController extends Controller
             'departement_surveillance' => $request->input("departement_surveillance"),
             'password' => Hash::make($request->input("password")),
         ]);
-        return redirect()->route('employes.index');
+        return redirect()->route('employes.index')->with("succes","L'employé a été ajoutés.");
     }
     /**
      * Display the user's profile form.
@@ -63,14 +63,13 @@ class ProfileController extends Controller
             "nom"=>$request->get('nom'),
             "email"=>$request->get('email'),
             "telephone"=>$request->get('telephone'),
-            "numero_employe"=>$request->get('numero_employe'),
             "travail"=>$request->get('travail'),
             "departement"=>$request->get('departement'),
             "departement_surveillance"=>$request->get('departement_surveillance'),
             "password"=>$request->get('password'),
         ]);
         $employe->save();
-        return redirect()->route('employes.index');
+        return redirect()->route('employes.index')->with("succes","Les information de l'employé ont été modifiés.");
     }
 
     /**
@@ -79,6 +78,6 @@ class ProfileController extends Controller
     public function destroy(User $employe): RedirectResponse
     {
         $employe->delete();
-        return redirect()->route('employes.index');
+        return redirect()->route('employes.index')->with("succes","L'employé a été supprimés>.");
     }
 }
