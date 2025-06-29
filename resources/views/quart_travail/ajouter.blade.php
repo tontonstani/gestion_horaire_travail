@@ -4,22 +4,31 @@
         @csrf
         <div>
             <label for="debut_quart">Début du quart</label>
-            <input name="debut_quart" id="debut_quart" type="datetime-local" required>
+            <input name="debut_quart" id="debut_quart" type="datetime-local" value="{{old("debut_quart")}}" required>
+            @error('debut_quart')
+                <span class="bg-red-300 text-red-700">{{$message}}</span>
+            @enderror
         </div>
 
         <div>
             <label for="fin_quart">Fin du quart</label>
-            <input name="fin_quart" id="fin_quart" type="datetime-local" required>
+            <input name="fin_quart" id="fin_quart" type="datetime-local" value="{{old("fin_quart")}}" required>
+            @error('fin_quart')
+            <span class="bg-red-300 text-red-700">{{$message}}</span>
+            @enderror
         </div>
 
         <div>
             <label for="id_employe">L'employé</label>
-            <select name="id_employe" id="id_employe" required>
+            <select name="id_employe" id="id_employe" required @selected(old("id_employe"))>
                 <option value="{{null}}">...</option>
                 <option value="1">Employé 1</option>
                 <option value="2">Employé 2</option>
                 <option value="3">Employé 3</option>
             </select>
+            @error('id_employe')
+            <span class="bg-red-300 text-red-700">{{$message}}</span>
+            @enderror
         </div>
 
         <button type="submit">Ajouter</button>

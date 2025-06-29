@@ -34,7 +34,7 @@ class QuartTravailController extends Controller
             "fin_quart" => $request->input('fin_quart'),
             "id_employe" => $request->input('id_employe'),
         ]);
-        return redirect()->route('quart_travails.index');
+        return redirect()->route('quart_travails.index')->with("succes","Le quart de travail a été ajouté.");
     }
 
     /**
@@ -64,7 +64,7 @@ class QuartTravailController extends Controller
            "id_employe" => $request->input('id_employe'),
         ]);
         $quartTravail->save();
-        return redirect()->route('quart_travails.index');
+        return redirect()->route('quart_travails.index')->with("success","Le quart de travail a été modifié.");
     }
 
     /**
@@ -73,6 +73,6 @@ class QuartTravailController extends Controller
     public function destroy(QuartTravail $quartTravail)
     {
         $quartTravail->delete();
-        return redirect()->route('quart_travails.index');
+        return redirect()->route('quart_travails.index')->with("succes","Le quart de travail a été supprimé.");
     }
 }

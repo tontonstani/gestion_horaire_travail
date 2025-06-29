@@ -1,6 +1,9 @@
 <x-guest-layout>
     <h1 class="bg-gray-400">Tous les quarts de travails</h1>
     <a href="{{route("quart_travails.create")}}" class="bg-green-600">Ajouter un quart</a>
+    @if(session('succes'))
+        <p class="bg-green-500">{{session('succes')}}</p>
+    @endif
     <table class="bg-white">
         <thead>
         <tr>

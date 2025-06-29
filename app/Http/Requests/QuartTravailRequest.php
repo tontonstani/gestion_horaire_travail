@@ -22,7 +22,9 @@ class QuartTravailRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "debut_quart"=>'required|date|after_or_equal:today',
+            "fin_quart"=>'required|date|after_or_equal:today',
+            "id_employe"=>'required|integer',
         ];
     }
 }
