@@ -22,7 +22,9 @@ class VacanceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "debut_vacance"=>"required|date|after_or_equal:today",
+            "fin_vacance"=>"required|date|after_or_equal:today",
+            "id_employe"=>"required|integer",
         ];
     }
 }

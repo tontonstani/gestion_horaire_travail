@@ -35,7 +35,7 @@ class VacanceController extends Controller
             "fin_vacance" => $request->input('fin_vacance'),
             "id_employe" => $request->input('id_employe'),
         ]);
-        return redirect()->route("vacances.index");
+        return redirect()->route("vacances.index")->with("succes","Les vacances ont été ajoutés.");
     }
 
     /**
@@ -65,7 +65,7 @@ class VacanceController extends Controller
             "id_employe"=>$request->get('id_employe'),
         ]);
         $vacance->save();
-        return redirect()->route('vacances.index');
+        return redirect()->route('vacances.index')->with("succes","Les vacances ont été modifiés.");
     }
 
     /**
@@ -74,6 +74,6 @@ class VacanceController extends Controller
     public function destroy(Vacance $vacance)
     {
         $vacance->delete();
-        return redirect()->route('vacances.index');
+        return redirect()->route('vacances.index')->with("succes","Les vacances ont été supprimés.");
     }
 }

@@ -1,6 +1,9 @@
 <x-guest-layout>
     <h1 class="bg-gray-400">Tous les vacances</h1>
     <a href="{{route("vacances.create")}}" class="bg-green-600">Ajouter des vacances</a>
+    @if(session("succes"))
+        <p class="bg-green-200 text-green-700">{{session("succes")}}</p>
+    @endif
     <table class="bg-white">
         <thead>
         <tr>
